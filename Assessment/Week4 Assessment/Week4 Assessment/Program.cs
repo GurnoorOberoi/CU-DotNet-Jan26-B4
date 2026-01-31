@@ -71,7 +71,7 @@ namespace Week4_Assessment
             Console.WriteLine("-------------------------------");
             foreach (var item in patients)
             {
-                Console.WriteLine($"Name = {item.Name}, Bill = {item.CalculateFinalBill():C2}");
+                Console.WriteLine($"Name = {item.Name}, Bill = {item.CalculateFinalBill().ToSting("C2")}");
             }
             Console.WriteLine();
         }
@@ -106,7 +106,7 @@ namespace Week4_Assessment
             hb.AddPatient(new Outpatient("P3", 500, 200));
             hb.AddPatient(new EmergencyPatient("P4", 500, 2));
             hb.GenerateDailyReport();
-            Console.WriteLine($"Total Revenue = {hb.CalculateTotalRevenue():C2}");
+            Console.WriteLine($"Total Revenue = {hb.CalculateTotalRevenue().ToSting("C2")}");
             Console.WriteLine($"Total Count  = {hb.GetInpatientCount()}");
 
         }
