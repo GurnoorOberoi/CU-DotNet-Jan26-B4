@@ -1,0 +1,8 @@
+SUCCESS for ID: 101
+
+DATA ENTRY ERROR for ID: 102 Specified argument was out of the range of valid values. (Parameter 'Invalid Weight, weight is less than or equal to 0')
+
+Exception: Fragile flag is set without a Reinforced status
+
+SECURITY ALERT for ID: 104 shipment destination is on the restricted list
+SUCCESS for ID: 105
