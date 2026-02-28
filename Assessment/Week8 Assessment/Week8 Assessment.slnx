@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="NUnitTestCases/NUnitTestCases.csproj" />
+  <Project Path="Week8 Assessment/Week8 Assessment.csproj" />
+</Solution>
