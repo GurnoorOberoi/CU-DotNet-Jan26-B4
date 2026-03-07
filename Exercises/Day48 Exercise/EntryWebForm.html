@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Bank Account Opening Form</h1>
+    <form>
+        <table >
+             <tr>
+                <td>Account Type</td>
+                <td>
+                    <select name="accountType" required>
+                    <OPtion value="">--Select--</OPtion>
+                    <option value="1">Saving</option>
+                    <option value="2">Current</option>
+                    <option value="3">Fixed Deposite</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="">Full Name</label>
+                </td>
+                <td>
+                    <input type="text" name="fullName" placeholder="Enter Full Name" minlength="3" maxlength="50" required/>
+                </td>
+            </tr>
+            <tr>
+                <td>Father's / Mother's Name</td>
+                <td>
+                    <input type="text" name="Parent's Name" placeholder="Parent's Name" required\>
+                </td>
+            </tr>
+            <tr>
+                <td>DOB</td>
+                <td>
+                    <input type="Date" name="DOB" required/>
+                </td>
+            </tr>
+            <tr>
+                <td>Age</td>
+                <td>
+                    <input type="Number" name="Age" min="18" max="100" required/>
+                </td>
+            </tr>
+            <tr>
+                <td>Gender</td>
+                <td>
+                     <input type="radio" name="gender" value="Male" required> Male
+                     <input type="radio" name="gender" value="Female"> Female
+                     <input type="radio" name="gender" value="Other"> Other
+                </td>
+            </tr>
+            <tr>
+                <td>Marital Status</td>
+                <td>
+                    <input type="CheckBox" name="Married" value="Married">Married
+                    <input type="CheckBox" name="UnMarried" value="UnMarried">UnMarried
+                </td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td>
+                    <input type="text" name="email" placeholder="example@gmail.com" required>
+                </td>
+            </tr>
+            <tr>
+                <td>Phone Number</td>
+                <td>
+                    <input type="tel" name="Phone Number" pattern="[1-9]{9}[0-9]{1}" placeholder="10-digit Number" required>
+                </td>
+            </tr>
+            <tr>
+                <td>Address</td>
+                <td>
+                    <input type="address" row="3" coln="30" required>
+                </td>
+            </tr>
+            <tr>
+                <td>City</td>
+                <td>
+                    <input type="text" name="city" required/>
+                </td>
+            </tr>
+            <tr>
+                <td>State</td>
+                <td>
+                    <select name="state" required>
+                    <option value="">--Select State--</option>
+                    <option value="1">Punjab</option>
+                    <option value="2">Haryana</option>
+                    <option value="3">Delhi</option>
+                    <option value="4">J&K</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Pin Code</td>
+                <td>
+                    <input type="text" name="pincode" pattern="[0-9]{6}" required>
+                </td>
+            </tr>
+            <tr>
+                <td>Occupations</td>
+                <td>
+                    <select name="Occupation">
+                        <option value="">--Select--</option>
+                        <option >Job-Private</option>
+                        <option >Govt.Empl</option>
+                        <option >Student</option>
+                        <option >Business</option>
+                        <option >Housewife</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Signature</td>
+                <td>
+                    <input type="text" name="signature" required>
+                </td>
+            </tr>
+             <tr>
+                <td>Agree to Terms:</td>
+                <td>
+                    <input type="checkbox" name="terms" required checked> I agree
+                </td>
+            </tr>
+            <tr>
+            <td colspan="2" align="center">
+                <input type="Submit"/>
+                <input type="Reset"/>
+            </td>
+        </tr>
+        </table>
+    </form>
+</body>
+</html>
