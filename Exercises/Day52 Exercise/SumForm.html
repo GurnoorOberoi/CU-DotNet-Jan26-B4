@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Sum Form</title>
+
+<script>
+
+function calculate()
+{
+    var t1 = document.getElementById("t1");
+    var t2 = document.getElementById("t2");
+    var ans = document.getElementById("ans");
+
+    var v1 = t1.value;
+    var v2 = t2.value;
+
+    var valid = true;
+
+    // check textbox 1
+    if(v1 == "")
+    {
+        t1.style.backgroundColor = "red";
+        valid = false;
+    }
+    else if(isNaN(v1))
+    {
+        t1.style.backgroundColor = "yellow";
+        valid = false;
+    }
+    else
+    {
+        t1.style.backgroundColor = "white";
+    }
+
+    // check textbox 2
+    if(v2 == "")
+    {
+        t2.style.backgroundColor = "red";
+        valid = false;
+    }
+    else if(isNaN(v2))
+    {
+        t2.style.backgroundColor = "yellow";
+        valid = false;
+    }
+    else
+    {
+        t2.style.backgroundColor = "white";
+    }
+
+    if(valid)
+    {
+        ans.value = parseFloat(v1) + parseFloat(v2);
+        ans.style.backgroundColor = "white";
+    }
+    else
+    {
+        ans.value = "Error";
+        ans.style.backgroundColor = "orange";
+    }
+}
+
+</script>
+
+</head>
+
+<body>
+
+<h3>Sum of Two Numbers</h3>
+
+<input type="text" id="t1" onblur="calculate()">
+
++
+
+<input type="text" id="t2" onblur="calculate()">
+
+<input type="button" value="=" onclick="calculate()">
+
+<input type="text" id="ans" readonly>
+
+</body>
+</html>

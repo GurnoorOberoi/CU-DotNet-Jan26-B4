@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulb Switcher</title>
+    <style>
+        body{text-align: center; margin-top: 50px; font-family: Arial, sans-serif;}
+        img{width: 150px; height: 250px;display: block; margin: 20px auto;}
+        button{ padding: 10px 20px; margin: 10px; font-size: 16px; }
+    </style>
+</head>
+<body>
+
+<img id="bulb" src="bulb_off.png" alt="Bulb">
+
+<button onclick="TurnOn()">Turn On the Light</button>
+<button onclick="TurnOff()">Turn off the Light</button>
+
+<script>
+
+function TurnOn()
+{
+    document.getElementById('bulb').src = "bulb_on.png";
+}
+
+function TurnOff()
+{
+    document.getElementById('bulb').src = "bulb_off.png";
+}
+
+</script>
+
+</body>
+</html>
