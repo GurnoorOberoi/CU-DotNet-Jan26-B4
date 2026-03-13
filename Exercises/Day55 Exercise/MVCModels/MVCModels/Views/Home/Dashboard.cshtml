@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="container mt-4">
+    
+    @* <h1 class="text-right mb-4">Dashboard</h1> *@
+
+    <h2 class="text-center mb-4">
+        @ViewData["DepartmentName"]
+    </h2>
+
+    <!-- Announcement -->
+    <div class="alert alert-warning text-right">
+        <strong>Daily Announcement:</strong> @ViewBag.Announcement
+    </div>
+
+    <!-- Server Status -->
+    <div class="mb-3">
+        @{
+            bool status = (bool)ViewData["ServerStatus"];
+        }
+
+        @if (status)
+        {
+            <div class="alert alert-success">
+                Department Status: Active
+            </div>
+        }
+        else
+        {
+            <div class="alert alert-danger">
+                Department Status: Under Maintenance
+            </div>
+        }
+    </div>
+
+    <!-- Employee Table -->
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>Employee ID</th>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Salary</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var emp in Model)
+            {
+                <tr>
+                    <td>@emp.Id</td>
+                    <td>@emp.Name</td>
+                    <td>@emp.Position</td>
+                    <td>₹@emp.Salary</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
+
