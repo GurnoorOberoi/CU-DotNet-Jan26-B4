@@ -5,6 +5,19 @@
 }
 
 <h1>Index</h1>
+@if (TempData["Success"] != null)
+{
+    var message = TempData["Success"] as string;
+
+    <div class="toast show position-fixed top-0 end-0 m-3">
+        <div class="toast-header bg-success text-white">
+            <strong class="me-auto">Success</strong>
+        </div>
+        <div class="toast-body">
+            @message
+        </div>
+    </div>
+}
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -25,7 +38,7 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+    @foreach (var item in Model) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.AccountNumber)
@@ -42,6 +55,35 @@
                 <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>
-}
+
+        <tr>
+            <td colspan="4">
+                <b>Transactions</b>
+
+                <table class="table table-bordered">
+                    <tr>
+                        <th>Date</th>
+                        <th>Description</th>
+                        <th>Category</th>
+                        <th>Amount</th>
+                    </tr>
+
+                    @if (item.Transactions != null)
+                    {
+                        foreach (var t in item.Transactions)
+                        {
+                            <tr>
+                                <td>@t.Date.ToShortDateString()</td>
+                                <td>@t.Description</td>
+                                <td>@t.Category</td>
+                                <td>@t.Amount</td>
+                            </tr>
+                        }
+                    }
+
+                </table>
+            </td>
+        </tr>
+        }
     </tbody>
 </table>

@@ -33,7 +33,7 @@ namespace FinTrackPro
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Transactions}/{action=Index}/{id?}");
+                pattern: "{controller=Accounts}/{action=Index}/{id?}");
 
             app.Run();
         }
