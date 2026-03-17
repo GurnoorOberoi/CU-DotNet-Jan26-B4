@@ -50,40 +50,68 @@
                 @Html.DisplayFor(modelItem => item.Balance)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">Edit</a>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Details</a> 
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
             </td>
         </tr>
+            <tr>
+                <td colspan="4">
 
-        <tr>
-            <td colspan="4">
-                <b>Transactions</b>
-
-                <table class="table table-bordered">
-                    <tr>
-                        <th>Date</th>
-                        <th>Description</th>
-                        <th>Category</th>
-                        <th>Amount</th>
-                    </tr>
-
-                    @if (item.Transactions != null)
+                    @if (item.Transactions != null && item.Transactions.Count > 0)
                     {
-                        foreach (var t in item.Transactions)
-                        {
-                            <tr>
-                                <td>@t.Date.ToShortDateString()</td>
-                                <td>@t.Description</td>
-                                <td>@t.Category</td>
-                                <td>@t.Amount</td>
-                            </tr>
-                        }
+                        <div class="accordion" id="accordion_@item.Id">
+                            <div class="accordion-item">
+
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed"
+                                            type="button"
+                                            data-bs-toggle="collapse"
+                                            data-bs-target="#collapse_@item.Id">
+
+                                        View Transactions
+
+                                    </button>
+                                </h2>
+
+                                <div id="collapse_@item.Id"
+                                     class="accordion-collapse collapse">
+
+                                    <div class="accordion-body">
+
+                                        <table class="table table-bordered">
+                                            <tr>
+                                                <th>Date</th>
+                                                <th>Description</th>
+                                                <th>Category</th>
+                                                <th>Amount</th>
+                                            </tr>
+
+                                            @foreach (var t in item.Transactions)
+                                            {
+                                                <tr>
+                                                    <td>@t.Date.ToShortDateString()</td>
+                                                    <td>@t.Description</td>
+                                                    <td>@t.Category</td>
+                                                    <td>@t.Amount</td>
+                                                </tr>
+                                            }
+
+                                        </table>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <span class="text-muted">No transactions available</span>
                     }
 
-                </table>
-            </td>
-        </tr>
+                </td>
+            </tr>
         }
     </tbody>
 </table>
