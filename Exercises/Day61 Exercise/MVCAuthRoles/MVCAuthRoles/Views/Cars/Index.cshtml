@@ -1,0 +1,141 @@
+﻿@model IEnumerable<MVCAuthRoles.Models.Car>
+
+@{
+    ViewData["Title"] = "Car Dashboard";
+}
+
+<style>
+    .dashboard-container {
+        padding: 40px;
+    }
+
+    .dashboard-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 25px;
+    }
+
+    .dashboard-title {
+        font-size: 28px;
+        font-weight: 600;
+    }
+
+    .btn-create {
+        padding: 10px 20px;
+        border-radius: 8px;
+        background: linear-gradient(135deg, #2563eb, #06b6d4);
+        color: white;
+        border: none;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+        .btn-create:hover {
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+    .table-card {
+        background: white;
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    }
+
+    table {
+        width: 100%;
+    }
+
+    thead {
+        background: #f1f5f9;
+    }
+
+    th {
+        padding: 12px;
+        font-weight: 600;
+        color: #334155;
+    }
+
+    td {
+        padding: 12px;
+        vertical-align: middle;
+    }
+
+    tbody tr:hover {
+        background: #f9fafb;
+        transition: 0.3s;
+    }
+
+    .action-btn {
+        margin-right: 8px;
+        padding: 6px 12px;
+        border-radius: 6px;
+        font-size: 13px;
+        text-decoration: none;
+        color: white;
+    }
+
+    .edit {
+        background: #3b82f6;
+    }
+
+    .details {
+        background: #10b981;
+    }
+
+    .delete {
+        background: #ef4444;
+    }
+
+    .action-btn:hover {
+        opacity: 0.8;
+        color: white;
+    }
+</style>
+
+<div class="dashboard-container">
+
+    <!-- HEADER -->
+    <div class="dashboard-header">
+        <div class="dashboard-title">Index</div>
+        <a asp-action="Create" class="btn-create">+ Add Car</a>
+    </div>
+
+    <!-- TABLE CARD -->
+    <div class="table-card">
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Brand</th>
+                    <th>Model</th>
+                    <th>Year</th>
+                    <th>Price</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Brand</td>
+                        <td>@item.Model</td>
+                        <td>@item.Year</td>
+                        <td>₹ @item.Price</td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="action-btn edit">Edit</a>
+                            <a asp-action="Details" asp-route-id="@item.Id" class="action-btn details">View</a>
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="action-btn delete">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>

@@ -1,0 +1,72 @@
+﻿html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+ Company branding for Identity pages 
+.brand-card {
+  border: 1px solid rgba(0,0,0,0.06);
+  padding: 1.25rem;
+  border-radius: 0.5rem;
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+.brand-header .company-logo {
+  max-width: 120px;
+  height: auto;
+}
+.brand-card .btn-primary {
+  background-color: var(--primary-color, #007bff);
+  border-color: var(--primary-color, #007bff);
+}
+
+ Professional auth page styling 
+.auth-background {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, #f3f6ff 0%, #eef4ff 100%);
+}
+
+.login-card {
+  border-radius: 12px;
+}
+
+.login-card .company-logo {
+  width: 90px;
+  height: auto;
+}
+
+.login-card .form-control {
+  height: 3.25rem;
+  font-size: 0.95rem;
+}
+
+.login-card .btn-primary {
+  padding: 0.6rem 1rem;
+  font-weight: 600;
+  background-color: var(--primary-color, #007bff);
+  border-color: var(--primary-color, #007bff);
+}
+
+@media (max-width: 576px) {
+  .login-card { padding: 1rem; }
+}
