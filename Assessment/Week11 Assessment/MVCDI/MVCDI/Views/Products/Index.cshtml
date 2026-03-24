@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Product Index</h1>
+@* <h2>Total Amount - @ViewBag.basePrice</h2>
+<h2>Discount Applied - @ViewBag.promoCode</h2>
+<h2>Final Amount after Discount - @ViewBag.Price</h2> *@
+@* <h2>Discount Applied - @ViewBag.promoCode1</h2>
+<h2>Final Amount after Discount - @ViewBag.Total</h2> *@
+ <form method="post" action="/Cart/AddToCart">
+    
+    <table>
+        <tr>
+            <td>
+                <label><strong>Enter Amount:</strong></label>
+                <input type="number" name="basePrice" placeholder="Enter price" required />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label><strong>Select Promo Code:</strong></label>
+                <select name="promoCode">
+                    <option value="">-- No Promo --</option>
+                    <option value="WINTER25">WINTER25 (15% OFF)</option>
+                    <option value="FREESHIP">FREESHIP ($5 OFF)</option>
+                </select>
+            </td>
+        </tr>
+    </table>
+    <button type="submit" class="btn btn-primary">
+        Add to Cart
+    </button>
+</form>

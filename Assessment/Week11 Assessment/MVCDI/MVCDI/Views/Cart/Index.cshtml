@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Cart Index</h1>
+<h2>Total Amount - @ViewBag.basePrice</h2>
+<h2>Discount Applied - @ViewBag.promoCode</h2>
+<h2>Final Amount after Discount - @ViewBag.Total</h2>
+<br />
+
+<a asp-controller="Products" asp-action="Index" class="btn btn-primary">
+    Back to Products
+</a>
