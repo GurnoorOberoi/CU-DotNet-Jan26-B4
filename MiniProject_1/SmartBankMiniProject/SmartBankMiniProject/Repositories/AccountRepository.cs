@@ -18,6 +18,8 @@ namespace SmartBankMiniProject.Repositories
             await _context.SaveChangesAsync();
             account.AccountNumber = AccountNumberGenerator.Generate(account.Id);
             await _context.SaveChangesAsync();
+            account.CreatedAt = DateTime.Now;
+            await _context.SaveChangesAsync();
             return account;
         }
         public async Task<List<Account>> GetAll()
