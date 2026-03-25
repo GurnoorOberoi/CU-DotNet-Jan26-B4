@@ -1,0 +1,6 @@
+@SmartBankMiniProject_HostAddress = http://localhost:5048
+
+GET {{SmartBankMiniProject_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
