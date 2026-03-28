@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="MicroserviceAuthJWT/IdentitiyServiceSetup.csproj" />
+  <Project Path="TrackingServiceSetup/TrackingServiceSetup.csproj" Id="a643f8d3-312e-4119-ba40-9fceece92c02" />
+</Solution>
