@@ -1,0 +1,27 @@
+﻿@page
+@model RazorMongo.Pages.Laptops.CreateModel
+<h2>Add New Laptop</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label>Model Name</label>
+        <input asp-for="Laptop.ModelName" class="form-control" />
+        <span asp-validation-for="Laptop.ModelName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label>Serial Number</label>
+        <input asp-for="Laptop.SerialNumber" class="form-control" />
+        <span asp-validation-for="Laptop.SerialNumber" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label>Price</label>
+        <input asp-for="Laptop.Price" class="form-control" />
+        <span asp-validation-for="Laptop.Price" class="text-danger"></span>
+    </div>
+
+    <br />
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a href="/Laptops/Index" class="btn btn-secondary">Back</a>
+</form>
