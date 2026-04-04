@@ -1,0 +1,35 @@
+﻿@model Destination
+
+<h2>Edit Destination</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <div class="mb-3">
+        <label>City</label>
+        <input asp-for="CityName" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label>Country</label>
+        <input asp-for="Country" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label>Description</label>
+        <input asp-for="Description" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label>Rating</label>
+        <input asp-for="Rating" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label>Last Visited</label>
+        <input asp-for="LastVisited" type="datetime-local" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-success">Update</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>

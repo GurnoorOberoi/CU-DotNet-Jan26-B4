@@ -1,0 +1,166 @@
+﻿@model IEnumerable<Destination>
+
+@{
+    ViewData["Title"] = "Travel Destinations";
+}
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<style>
+    body {
+        background: linear-gradient(to right, #74ebd5, #ACB6E5);
+    }
+
+    .header {
+        text-align: center;
+        margin: 30px 0;
+        color: white;
+    }
+
+    .form-card {
+        background: white;
+        padding: 20px;
+        border-radius: 12px;
+        margin-bottom: 25px;
+        box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    }
+
+    .card {
+        border-radius: 15px;
+        transition: 0.3s;
+    }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+    .btn {
+        border-radius: 20px;
+    }
+</style>
+
+<div class="container">
+
+    <div class="header">
+        <h1>🌍 Travel Destinations</h1>
+        <p>Add and manage your trips ✈️</p>
+    </div>
+
+    <!-- ✅ CREATE FORM -->
+    @* <div class="form-card">
+        <h5>Add New Destination</h5>
+
+        <form asp-action="Create" method="post">
+            <div class="row">
+                <div class="col-md-3">
+                    <input name="CityName" class="form-control" placeholder="City" required />
+                </div>
+
+                <div class="col-md-3">
+                    <input name="Country" class="form-control" placeholder="Country" required />
+                </div>
+
+                <div class="col-md-3">
+                    <input name="Description" class="form-control" placeholder="Description" />
+                </div>
+
+                <div class="col-md-2">
+                    <input name="Rating" type="number" class="form-control" placeholder="Rating (1-5)" />
+                </div>
+
+                <div class="col-md-3 mt-2">
+                    <input name="LastVisited" type="date" class="form-control" />
+                </div>
+
+                <div class="col-md-2 mt-2">
+                    <button type="submit" class="btn btn-success w-100">
+                        ➕ Add
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div> *@
+    <!-- CREATE BUTTON -->
+    <div class="text-center mb-3">
+        <button class="btn btn-success" type="button" data-bs-toggle="collapse" data-bs-target="#createForm">
+            ➕ Create Destination
+        </button>
+    </div>
+
+    <!-- DROPDOWN FORM -->
+    <div class="collapse" id="createForm">
+        <div class="card card-body mb-4 shadow-sm">
+
+            <h5 class="mb-3">Add New Destination</h5>
+
+            <form asp-action="Create" method="post">
+                <div class="row">
+
+                    <div class="col-md-3">
+                        <input name="CityName" class="form-control" placeholder="City" required />
+                    </div>
+
+                    <div class="col-md-3">
+                        <input name="Country" class="form-control" placeholder="Country" required />
+                    </div>
+
+                    <div class="col-md-3">
+                        <input name="Description" class="form-control" placeholder="Description" />
+                    </div>
+
+                    <div class="col-md-2">
+                        <input name="Rating" type="number" class="form-control" placeholder="Rating" />
+                    </div>
+
+                    <div class="col-md-3 mt-2">
+                        <input name="LastVisited" type="date" class="form-control" />
+                    </div>
+
+                    <div class="col-md-2 mt-2">
+                        <button type="submit" class="btn btn-success w-100">
+                            Save
+                        </button>
+                    </div>
+
+                </div>
+            </form>
+
+        </div>
+    </div>
+    <!-- ✅ CARDS -->
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm p-3 text-center">
+
+                    <h4>@item.CityName</h4>
+                    <h6 class="text-muted">@item.Country</h6>
+
+                    <p>
+                        @(string.IsNullOrEmpty(item.Description)
+                                            ? "No description"
+                                            : item.Description)
+                    </p>
+
+                    <p>⭐ @item.Rating</p>
+                    <p class="text-muted">@item.LastVisited.ToString("dd MMM yyyy")</p>
+
+                    <div>
+                        <a asp-action="Edit" asp-route-id="@item.Id"
+                           class="btn btn-warning btn-sm">Edit</a>
+
+                        <a asp-action="Delete" asp-route-id="@item.Id"
+                           class="btn btn-danger btn-sm"
+                           onclick="return confirm('Delete?');">
+                            Delete
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        }
+    </div>
+
+</div>               

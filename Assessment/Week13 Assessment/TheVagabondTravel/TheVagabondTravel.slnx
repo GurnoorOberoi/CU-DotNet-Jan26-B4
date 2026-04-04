@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="TheVagabondTravel/TheVagabondTravel.csproj" />
+  <Project Path="TheVagabondTravelFrontend/TheVagabondTravelFrontend.csproj" Id="cd5feafb-5877-4ca6-870b-6f81c5b90181" />
+</Solution>

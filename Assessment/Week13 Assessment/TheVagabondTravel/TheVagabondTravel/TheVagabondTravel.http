@@ -1,0 +1,6 @@
+@TheVagabondTravel_HostAddress = http://localhost:5105
+
+GET {{TheVagabondTravel_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
