@@ -1,0 +1,70 @@
+﻿@using NorthwindCatalog.DTOs
+@model List<CategorySummaryDto>
+
+<style>
+    .summary-card {
+        border-radius: 15px;
+    }
+
+    .table thead {
+        background: #343a40;
+        color: white;
+    }
+
+    .table tbody tr:hover {
+        background-color: #f2f2f2;
+    }
+</style>
+
+<div class="container mt-5">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="fw-bold mb-0">📊 Category Insights</h2>
+
+        <span class="badge bg-primary fs-6 p-2">
+            Total: @Model.Count()
+        </span>
+    </div>
+
+    <!-- Table -->
+    <div class="card shadow-lg summary-card">
+        <div class="card-body">
+
+            <table class="table table-borderless text-center align-middle">
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Products</th>
+                        <th>Avg Price</th>
+                        <th>Top Product</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="fw-bold">@item.CategoryName</td>
+
+                            <td>
+                                <span class="badge bg-dark">
+                                    @item.ProductCount
+                                </span>
+                            </td>
+
+                            <td class="text-success fw-semibold">
+                                ₹ @item.AvgPrice
+                            </td>
+
+                            <td class="text-danger fw-semibold">
+                                @item.MostExpensiveProduct
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+
+            </table>
+
+        </div>
+    </div>
+</div>

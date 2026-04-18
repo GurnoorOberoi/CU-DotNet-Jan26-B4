@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+@* <h1>Categories Index</h1> *@
+<div class="container mt-4">
+    <h2 class="text-center mb-4">Categories</h2>
+
+    <div class="row g-4">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4 col-sm-6">
+                <div class="card h-100 shadow-sm text-center">
+
+                    <img src="@Url.Content(item.ImageUrl)"
+                         class="card-img-top"
+                         style="height:200px; object-fit:cover;"
+                         onerror="this.src='/images/default.jpg'" />
+
+                    <div class="card-body">
+                        <h5 class="card-title">@item.CategoryName</h5>
+
+                        <a href="/Products/ByCategory/@item.CategoryId"
+                           class="btn btn-primary mt-2">
+                            View Products
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
