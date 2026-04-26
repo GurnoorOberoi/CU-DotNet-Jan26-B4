@@ -11,14 +11,14 @@ using TicketBookingSystem.TripService.Data;
 namespace TicketBookingSystem.TripService.Migrations
 {
     [DbContext(typeof(TripDbContext))]
-    [Migration("20260421091643_init")]
+    [Migration("20260426180030_init")]
     partial class init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "8.0.0");
+            modelBuilder.HasAnnotation("ProductVersion", "8.0.23");
 
             modelBuilder.Entity("TicketBookingSystem.TripService.Models.Trip", b =>
                 {

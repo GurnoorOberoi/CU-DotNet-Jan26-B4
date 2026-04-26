@@ -1,4 +1,3 @@
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TicketBookingSystem.TripService.DTOs;
 using TicketBookingSystem.TripService.Models;

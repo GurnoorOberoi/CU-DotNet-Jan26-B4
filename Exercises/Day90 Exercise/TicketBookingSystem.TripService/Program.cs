@@ -1,20 +1,40 @@
-using System.Text;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
+using Serilog;
+using System.Text;
 using TicketBookingSystem.TripService.Data;
+using TicketBookingSystem.TripService.Mappings;
 using TicketBookingSystem.TripService.Repositories;
 using TicketBookingSystem.TripService.Services;
+using TicketBookingSystem.TripService.Validators;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Host.UseSerilog((context, loggerConfiguration) =>
+{
+    loggerConfiguration
+        .ReadFrom.Configuration(context.Configuration)
+        .Enrich.FromLogContext()
+        .WriteTo.Console()
+        .WriteTo.File("logs/log-.txt", rollingInterval: RollingInterval.Day);
+});
 
 builder.Services.AddDbContext<TripDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("TripDbContext") ??
         throw new InvalidOperationException("Connection string 'TripDbContext' not found.")));
 
+builder.Services.AddAutoMapper(typeof(MappingProfile));
+
+builder.Services.AddValidatorsFromAssemblyContaining<CreateTripValidator>();
+builder.Services.AddFluentValidationAutoValidation();
+
 builder.Services.AddHttpClient("ItineraryService", c =>
 {
-    c.BaseAddress = new Uri("https://localhost:5005/"); // your itinerary service port
+    c.BaseAddress = new Uri("http://localhost:5005/"); // your itinerary service port
 });
 
 // JWT configuration
@@ -43,7 +63,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 builder.Services.AddAuthorization();
 
 builder.Services.AddScoped<ITripRepository, TripRepository>();
-builder.Services.AddScoped<ITripService, TicketBookingSystem.TripService.Services.TripService>();
+builder.Services.AddScoped<ITripService, TripService>();
 
 builder.Services.AddControllers();
 
@@ -60,7 +80,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-// app.UseHttpsRedirection();
+app.UseHttpsRedirection();
 
 app.UseAuthentication();
 app.UseAuthorization();
